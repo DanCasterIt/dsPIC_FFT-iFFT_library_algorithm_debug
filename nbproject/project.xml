@@ -14,7 +14,6 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>.</sourceRootElem>
-                <sourceRootElem>../Application_note_CE018_FFT_DSPlib.X</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

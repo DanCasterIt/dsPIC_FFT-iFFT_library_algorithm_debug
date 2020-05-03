@@ -30,7 +30,7 @@
 #include <stdint.h>
 
 /* Global Definitions */
-fractcomplex sigCmpx[BUFFER_LENGHT] 		/* Typically, the input signal to an FFT  */
+extern fractcomplex sigCmpx[BUFFER_LENGHT] 		/* Typically, the input signal to an FFT  */
 __attribute__((space(ymemory),far,aligned(BUFFER_LENGHT*2*2)));
 
 #if FFTTWIDCOEFFS_IN_PROGMEM
@@ -47,8 +47,11 @@ __attribute__ ((space(auto_psv), aligned (BUFFER_LENGHT*2)));
 
 void oscillator_setup(void);
 void uart_setup(void);
-void generate_rect_signal(void);
+void process_1khz_square_wave(void);
 void transform(void);
+
+int	peakFrequencyBin = 0;				/* Declare post-FFT variables to compute the */
+unsigned long peakFrequency = 0;			/* frequency of the largest spectral component */
 
 int main(void) {
     oscillator_setup();
@@ -66,7 +69,7 @@ int main(void) {
 	TwidFactorInit (BUFFER_LENGHT_LOG, &twiddleFactors_IFFT[0], 1);	/* We need to do this only once at start-up */
 #endif
     
-    generate_rect_signal();
+    process_1khz_square_wave();
     transform();
 
     while (1) {}
@@ -108,15 +111,14 @@ void uart_setup(void) {
     __C30_UART = 1;
 }
 
-void generate_rect_signal(void)   {
-    int i;
-    for(i=0;i<BUFFER_LENGHT;i++)   {
-        sigCmpx[i].imag = 0;
-        if(i > (BUFFER_LENGHT/4) && i < 3*(BUFFER_LENGHT/4))    {
-            sigCmpx[i].real = 0x4000;
-        }
-        else sigCmpx[i].real = 0;
-    }
+void process_1khz_square_wave(void) {
+    int i, e;
+	for (i = BUFFER_LENGHT-1, e = ((BUFFER_LENGHT/2)-1); i > 0; i-=2, e--)	{
+		sigCmpx[i].real = sigCmpx[e].real >> 1;
+		sigCmpx[i].imag = 0;
+		sigCmpx[i-1].real = sigCmpx[e-1].imag >> 1;
+		sigCmpx[i-1].imag = 0;
+	}
 }
 
 void transform() {
@@ -130,14 +132,21 @@ void transform() {
 #else
 	FFTComplexIP (BUFFER_LENGHT_LOG, &sigCmpx[0], (fractcomplex *) __builtin_psvoffset(&twiddleFactors_FFT[0]), (int) __builtin_psvpage(&twiddleFactors_FFT[0]));
 #endif
+    
 	/* Store output samples in bit-reversed order of their addresses */
 	BitReverseComplex (BUFFER_LENGHT_LOG, &sigCmpx[0]);
+    
 	/* Compute the square magnitude of the complex FFT output array so we have a Real output vetor */
 	SquareMagnitudeCplx(BUFFER_LENGHT, &sigCmpx[0], &sigCmpx[0].real);
+
+	/* Find the frequency Bin ( = index into the SigCmpx[] array) that has the largest energy*/
+	/* i.e., the largest spectral component */
+	VectorMax(BUFFER_LENGHT/2, &sigCmpx[0].real, &peakFrequencyBin);
+
+	/* Compute the frequency (in Hz) of the largest spectral component */
+	peakFrequency = peakFrequencyBin*(SAMPLING_RATE/BUFFER_LENGHT);
     #if TRANSFORM_FUNCTION_NO_TEST
-    for (i = 0; i < BUFFER_LENGHT; i++)  {
-        printf("B - [%03u].R = %04X = % 5d\n\r", i, sigCmpx[i].real, sigCmpx[i].real);
-    }
+    for (i = 0; i < BUFFER_LENGHT; i++) printf("B - [%03u].R = %04X = % 5d\n\r", i, sigCmpx[i].real, sigCmpx[i].real);
     #endif
 	/* Perform IFFT operation */
 #if FFTTWIDCOEFFS_IN_PROGMEM
@@ -147,5 +156,7 @@ void transform() {
 #endif
     #if TRANSFORM_FUNCTION_NO_TEST
     for (i = 0; i < BUFFER_LENGHT; i++)  printf("C - [%03u].R = %04X = % 5d\n\r", i, sigCmpx[i].real, sigCmpx[i].real);
+    printf("\n\rpeakFrequencyBin = %d\n\r", peakFrequencyBin);
+    printf("peakFrequency = %d\n\r", (int)peakFrequency);
     #endif
 }
