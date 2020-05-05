@@ -1,5 +1,5 @@
 # dsPIC_FFT-iFFT_library_algorithm_debug
-This is an example code I wrote to try to understand why the Microchip XC16's iFFT library function attenuates the output. It attenuates so much that is not usable.
+This is an example code I wrote to try to understand why the Microchip XC16's iFFT library function introduces too much noise the output. It introduces so much noise that is not usable.
 
 This code is directly derived from the Microchip's "CE018 - Using the Fast Fourier Transform (FFT) for Frequency Detection" with few modification:
 
