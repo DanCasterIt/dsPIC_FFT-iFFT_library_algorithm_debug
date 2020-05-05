@@ -154,6 +154,10 @@ void transform() {
 #else
 	IFFTComplexIP (BUFFER_LENGHT_LOG, &sigCmpx[0], (fractcomplex *) __builtin_psvoffset(&twiddleFactors_IFFT[0]), (int) __builtin_psvpage(&twiddleFactors_IFFT[0]));
 #endif
+    
+    //FFTComplexIP() scales the signal by 1/N. This N has to be re-multiplied.
+    for (i = 0; i < BUFFER_LENGHT; i++)  sigCmpx[i].real = sigCmpx[i].real * BUFFER_LENGHT;
+    
     #if TRANSFORM_FUNCTION_NO_TEST
     for (i = 0; i < BUFFER_LENGHT; i++)  printf("C - [%03u].R = %04X = % 5d\n\r", i, sigCmpx[i].real, sigCmpx[i].real);
     printf("\n\rpeakFrequencyBin = %d\n\r", peakFrequencyBin);
