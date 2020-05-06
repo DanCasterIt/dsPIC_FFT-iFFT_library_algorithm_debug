@@ -211,7 +211,7 @@ section                    address      alignment gaps    total length  (dec)
 .nbss                        0x800                   0             0x8  (8)
 .bss                         0x808                   0           0x400  (1024)
 _02F01A805eb2077d           0x4000                   0           0x400  (1024)
-_03987D205eb2077d           0x4400                   0           0x200  (512)
+_039B9D205eb20848           0x4400                   0           0x200  (512)
 .data                       0x4600                   0            0xc4  (196)
 .bss                        0x46c4                   0             0x4  (4)
 .data                       0x46c8                   0             0x2  (2)
@@ -1947,9 +1947,9 @@ _02F01A805eb2077d
                     0x4000        0x400 build/default/production/inputsignal_square1khz.o
                     0x4000                  _sigCmpx
 
-_03987D205eb2077d
+_039B9D205eb20848
                     0x4400        0x200
- _03987D205eb2077d
+ _039B9D205eb20848
                     0x4400        0x200 build/default/production/main.o
                     0x4400                  _window
 
