@@ -1,4 +1,4 @@
-# dsPIC_FFT-iFFT_library_algorithm_debug
+# dsPIC_playback_device
 
 This is a signal playback project: It simply transforms a signal using the FFT and inverse transforms it using the iFFT.
 
@@ -16,7 +16,7 @@ This project runs and compiles properly with modern versions of MPLAB X and XC16
 ## How to compile and run
 
 1) Clone this project
-2) Rename this project's folder from "dsPIC_FFT-iFFT_library_algorithm_debug" to "dsPIC_FFT-iFFT_library_algorithm_debug.X"
+2) Rename this project's folder from "dsPIC_playback_device" to "dsPIC_playback_device.X"
 3) Open it with MPLAB X
 4) If it does not compile already, right-click on the project name -> properties -> Conf:[default] -> XC16-> xc16-ld -> in "Additional options:" put the string: "--library "dsp""
 
