@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/dsPIC33F_FFT_iFFT_DEBUG.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=dsPIC33F_FFT_iFFT_DEBUG.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=dspic33ffftifftdebug.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/dsPIC_FFT-iFFT_library_algorithm_debug.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=dsPIC_FFT-iFFT_library_algorithm_debug.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=dspicfft-ifftlibraryalgorithmdebug.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/dspic33ffftifftdebug.x/bin
+makeDirectory ${TMPDIR}/dspicfft-ifftlibraryalgorithmdebug.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/dspic33ffftifftdebug.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/dspicfft-ifftlibraryalgorithmdebug.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/dspic33ffftifftdebug.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/dspicfft-ifftlibraryalgorithmdebug.x.tar *
 checkReturnCode
 
 # Cleanup

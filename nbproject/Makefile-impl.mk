@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=dsPIC33F_FFT_iFFT_DEBUG.X
+PROJECTNAME=dsPIC_FFT-iFFT_library_algorithm_debug.X
 
 # Active Configuration
 DEFAULTCONF=default

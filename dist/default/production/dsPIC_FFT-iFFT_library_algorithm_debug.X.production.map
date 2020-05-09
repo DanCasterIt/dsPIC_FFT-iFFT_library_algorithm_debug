@@ -6,7 +6,7 @@ Tool Name:
 Command:
   -p33FJ128GP802 \
   -o \
-  dist/default/production/dsPIC33F_FFT_iFFT_DEBUG.X.production.elf \
+  dist/default/production/dsPIC_FFT-iFFT_library_algorithm_debug.X.production.elf \
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/.. \
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib \
   -Lc:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../support/PIC24E/gld \
@@ -32,7 +32,7 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/production/dsPIC33F_FFT_iFFT_DEBUG.X.production.map \
+  -Map=dist/default/production/dsPIC_FFT-iFFT_library_algorithm_debug.X.production.map \
   --report-mem \
   --memorysummary \
   dist/default/production/memoryfile.xml \
@@ -210,8 +210,8 @@ section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
 .nbss                        0x800                   0             0x8  (8)
 .bss                         0x808                   0           0x400  (1024)
-_02F01A805eb2077d           0x4000                   0           0x400  (1024)
-_039B9D205eb20848           0x4400                   0           0x200  (512)
+_02EF1A805eb60ea3           0x4000                   0           0x400  (1024)
+_03A05D205eb60ea3           0x4400                   0           0x200  (512)
 .data                       0x4600                   0            0xc4  (196)
 .bss                        0x46c4                   0             0x4  (4)
 .data                       0x46c8                   0             0x2  (2)
@@ -754,13 +754,13 @@ __FUID3
  *(.comment)
  .comment         0x000000         0x5e c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-c-elf.a(xfiles.XX_eo)
 
-.debug_info       0x000000       0x1723
+.debug_info       0x000000       0x1750
  *(.debug_info)
- .debug_info      0x000000       0x10eb build/default/production/main.o
- .debug_info      0x0010eb        0x1b1 build/default/production/twiddleFactors.o
- .debug_info      0x00129c        0x182 build/default/production/inputsignal_square1khz.o
- .debug_info      0x00141e        0x179 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(inithann.deo)
- .debug_info      0x001597        0x18c c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(flt2frct.deo)
+ .debug_info      0x000000       0x10fa build/default/production/main.o
+ .debug_info      0x0010fa        0x1c0 build/default/production/twiddleFactors.o
+ .debug_info      0x0012ba        0x191 build/default/production/inputsignal_square1khz.o
+ .debug_info      0x00144b        0x179 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(inithann.deo)
+ .debug_info      0x0015c4        0x18c c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(flt2frct.deo)
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x332
@@ -1791,7 +1791,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-pic30
 LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
-OUTPUT(dist/default/production/dsPIC33F_FFT_iFFT_DEBUG.X.production.elf elf32-pic30)
+OUTPUT(dist/default/production/dsPIC_FFT-iFFT_library_algorithm_debug.X.production.elf elf32-pic30)
 LOAD jump_table
 LOAD default_isr
 LOAD data_init
@@ -1941,15 +1941,15 @@ __c30_signature
  .nbss              0x0806          0x2 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libm-elf.a(errno.eo)
                     0x0806                  _errno
 
-_02F01A805eb2077d
+_02EF1A805eb60ea3
                     0x4000        0x400
- _02F01A805eb2077d
+ _02EF1A805eb60ea3
                     0x4000        0x400 build/default/production/inputsignal_square1khz.o
                     0x4000                  _sigCmpx
 
-_039B9D205eb20848
+_03A05D205eb60ea3
                     0x4400        0x200
- _039B9D205eb20848
+ _03A05D205eb60ea3
                     0x4400        0x200 build/default/production/main.o
                     0x4400                  _window
 

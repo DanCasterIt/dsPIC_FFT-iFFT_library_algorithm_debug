@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>dsPIC33F_FFT_iFFT_DEBUG</name>
+            <name>dsPIC_FFT-iFFT_library_algorithm_debug</name>
             <creation-uuid>d145e154-6b87-450c-b0ec-0435d8a79079</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>

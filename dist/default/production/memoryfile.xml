@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project>
-  <executable name="dist/default/production/dsPIC33F_FFT_iFFT_DEBUG.X.production.elf">
+  <executable name="dist/default/production/dsPIC_FFT-iFFT_library_algorithm_debug.X.production.elf">
     <memory name="data">
       <units>bytes</units>
       <length>16384</length>

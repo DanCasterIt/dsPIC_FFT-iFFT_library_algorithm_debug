@@ -15,7 +15,10 @@ This project runs and compiles properly with modern versions of MPLAB X and XC16
 
 ## How to compile and run
 
-clone this project folder, open it with MPLAB X, if it does not compile already, right-click on the project name -> properties -> Conf:[default] -> XC16-> xc16-ld -> in "Additional options:" put the string: "--library "dsp""
+1) Clone this project
+2) Rename this project's folder from "dsPIC_FFT-iFFT_library_algorithm_debug" to "dsPIC_FFT-iFFT_library_algorithm_debug.X"
+3) Open it with MPLAB X
+4) If it does not compile already, right-click on the project name -> properties -> Conf:[default] -> XC16-> xc16-ld -> in "Additional options:" put the string: "--library "dsp""
 
 ## Workaround for TwidFactorInit() function
 
