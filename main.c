@@ -30,8 +30,6 @@
 extern fractcomplex sigCmpx[BUFFER_LENGHT] 		/* Typically, the input signal to an FFT  */
 __attribute__((space(ymemory),far,aligned(BUFFER_LENGHT*2*2)));
 
-fractcomplex buff[BUFFER_LENGHT];
-
 #if HANNING_WINDOW
 fractional window[BUFFER_LENGHT] __attribute__((space(ymemory), aligned(BUFFER_LENGHT*2)));
 #endif
@@ -97,6 +95,7 @@ void process_1khz_square_wave(void) {
 void transform() {
 #if TRANSFORM_FUNCTION_NO_TEST
     int i;
+    fractcomplex buff[BUFFER_LENGHT];
     for (i = 0; i < BUFFER_LENGHT; i++)  printf("A - [%03u].R = %04X = % 5d\n\r", i, sigCmpx[i].real, sigCmpx[i].real);
 #endif
 #if HANNING_WINDOW
@@ -112,14 +111,12 @@ void transform() {
 	/* Store output samples in bit-reversed order of their addresses */
 	BitReverseComplex (BUFFER_LENGHT_LOG, &sigCmpx[0]);
     
-    for (i = 0; i < BUFFER_LENGHT; i++) buff[i] = sigCmpx[i];
 	/* Compute the square magnitude of the complex FFT output array so we have a Real output vetor */
-	SquareMagnitudeCplx(BUFFER_LENGHT, &sigCmpx[0], &sigCmpx[0].real);
+	SquareMagnitudeCplx(BUFFER_LENGHT, &sigCmpx[0], &buff[0].real);
 
 	/* Find the frequency Bin ( = index into the SigCmpx[] array) that has the largest energy*/
 	/* i.e., the largest spectral component */
-	VectorMax(BUFFER_LENGHT/2, &sigCmpx[0].real, &peakFrequencyBin);
-    for (i = 0; i < BUFFER_LENGHT; i++) sigCmpx[i] = buff[i];
+	VectorMax(BUFFER_LENGHT/2, &buff[0].real, &peakFrequencyBin);
 
 	/* Compute the frequency (in Hz) of the largest spectral component */
 	peakFrequency = peakFrequencyBin*(SAMPLING_RATE/BUFFER_LENGHT);

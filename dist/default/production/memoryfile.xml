@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project>
-  <executable name="dist/default/production/dsPIC_FFT-iFFT_library_algorithm_debug.X.production.elf">
+  <executable name="dist/default/production/dsPIC_playback_device.X.production.elf">
     <memory name="data">
       <units>bytes</units>
       <length>16384</length>
-      <used>2776</used>
-      <free>13608</free>
+      <used>1752</used>
+      <free>14632</free>
     </memory>
     <memory name="program">
       <units>bytes</units>
       <length>131328</length>
-      <used>13578</used>
-      <free>117750</free>
+      <used>13467</used>
+      <free>117861</free>
     </memory>
   </executable>
 </project>
