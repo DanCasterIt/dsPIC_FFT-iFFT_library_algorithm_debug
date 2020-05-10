@@ -197,11 +197,11 @@ xc16-ld 1.36 (B)
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x1868          0x249c  (9372)
-.const                      0x1c00               0x4d0           0x738  (1848)
-.dinit                      0x20d0               0x380           0x540  (1344)
-.text                       0x2450               0x25a           0x387  (903)
+.const                      0x1c00               0x50a           0x78f  (1935)
+.dinit                      0x210a               0x380           0x540  (1344)
+.text                       0x248a               0x2aa           0x3ff  (1023)
 
-                 Total "program" memory used (bytes):         0x349b  (13467) 10%
+                 Total "program" memory used (bytes):         0x356a  (13674) 10%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x4000]
@@ -210,7 +210,7 @@ section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
 .nbss                        0x800                   0             0x8  (8)
 _02ED5A805eb7fd89           0x4000                   0           0x400  (1024)
-_03ADCC005eb7fd89           0x4400                   0           0x200  (512)
+_039F6C005eb7ff23           0x4400                   0           0x200  (512)
 .data                       0x4600                   0            0xc4  (196)
 .bss                        0x46c4                   0             0x4  (4)
 .data                       0x46c8                   0             0x2  (2)
@@ -346,11 +346,11 @@ External Symbols in Program Memory (by address):
                   0x001812                  ___Putfld_s
                   0x001c00                  _twiddleFactors_FFT
                   0x001e00                  _twiddleFactors_IFFT
-                  0x002450                  _main
-                  0x002482                  _process_1khz_square_wave
-                  0x0024e8                  _transform
-                  0x002618                  _oscillator_setup
-                  0x00266c                  _uart_setup
+                  0x00248a                  _main
+                  0x0024bc                  _process_1khz_square_wave
+                  0x002522                  _transform
+                  0x0026a2                  _oscillator_setup
+                  0x0026f6                  _uart_setup
 
 External Symbols in Program Memory (by name):
 
@@ -427,18 +427,18 @@ External Symbols in Program Memory (by name):
                   0x000b7a                  _fmodf
                   0x000f1e                  _free
                   0x000c48                  _fwrite
-                  0x002450                  _main
+                  0x00248a                  _main
                   0x000fe8                  _malloc
                   0x000cf0                  _memchr
                   0x000d04                  _memcpy
-                  0x002618                  _oscillator_setup
-                  0x002482                  _process_1khz_square_wave
+                  0x0026a2                  _oscillator_setup
+                  0x0024bc                  _process_1khz_square_wave
                   0x00103c                  _strchr
                   0x001054                  _strlen
-                  0x0024e8                  _transform
+                  0x002522                  _transform
                   0x001c00                  _twiddleFactors_FFT
                   0x001e00                  _twiddleFactors_IFFT
-                  0x00266c                  _uart_setup
+                  0x0026f6                  _uart_setup
                   0x000e46                  fclose.XX_elo:_closeall
                   0x000c1c                  printf_cdnopuxX.XXeo:_prout
                   0x000ef2                  printf_s.XXeo:_prout
@@ -768,13 +768,13 @@ __FUID3
  .debug_abbrev    0x000258         0x79 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(inithann.deo)
  .debug_abbrev    0x0002d1         0x61 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(flt2frct.deo)
 
-.debug_line       0x000000        0x374
+.debug_line       0x000000        0x37c
  *(.debug_line)
- .debug_line      0x000000        0x191 build/default/production/main.o
- .debug_line      0x000191         0x83 build/default/production/twiddleFactors.o
- .debug_line      0x000214         0x8b build/default/production/inputsignal_square1khz.o
- .debug_line      0x00029f         0x57 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(inithann.deo)
- .debug_line      0x0002f6         0x7e c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(flt2frct.deo)
+ .debug_line      0x000000        0x199 build/default/production/main.o
+ .debug_line      0x000199         0x83 build/default/production/twiddleFactors.o
+ .debug_line      0x00021c         0x8b build/default/production/inputsignal_square1khz.o
+ .debug_line      0x0002a7         0x57 c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(inithann.deo)
+ .debug_line      0x0002fe         0x7e c:/program files (x86)/microchip/xc16/v1.36/bin/bin/../../lib\libdsp-elf.a(flt2frct.deo)
 
 .debug_frame      0x000000        0x168
  *(.debug_frame)
@@ -1944,9 +1944,9 @@ _02ED5A805eb7fd89
                     0x4000        0x400 build/default/production/inputsignal_square1khz.o
                     0x4000                  _sigCmpx
 
-_03ADCC005eb7fd89
+_039F6C005eb7ff23
                     0x4400        0x200
- _03ADCC005eb7fd89
+ _039F6C005eb7ff23
                     0x4400        0x200 build/default/production/main.o
                     0x4400                  _window
 
@@ -1988,19 +1988,19 @@ _03ADCC005eb7fd89
 .config_IESO      0xf80006          0x2
  .config_IESO     0xf80006          0x2 build/default/production/main.o
 
-.const              0x9c00        0x4d0 load address 0x001c00  
+.const              0x9c00        0x50a load address 0x001c00  
  .const             0x9c00        0x400 build/default/production/twiddleFactors.o
                     0x9c00                  _twiddleFactors_FFT
                     0x9e00                  _twiddleFactors_IFFT
- .const             0xa000         0xd0 build/default/production/main.o
+ .const             0xa000        0x10a build/default/production/main.o
 
-.dinit            0x0020d0        0x380
- .dinit           0x0020d0        0x380 data_init
+.dinit            0x00210a        0x380
+ .dinit           0x00210a        0x380 data_init
 
-.text             0x002450        0x25a
- .text            0x002450        0x25a build/default/production/main.o
-                  0x002450                  _main
-                  0x002482                  _process_1khz_square_wave
-                  0x0024e8                  _transform
-                  0x002618                  _oscillator_setup
-                  0x00266c                  _uart_setup
+.text             0x00248a        0x2aa
+ .text            0x00248a        0x2aa build/default/production/main.o
+                  0x00248a                  _main
+                  0x0024bc                  _process_1khz_square_wave
+                  0x002522                  _transform
+                  0x0026a2                  _oscillator_setup
+                  0x0026f6                  _uart_setup

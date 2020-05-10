@@ -122,6 +122,10 @@ void transform() {
 	peakFrequency = peakFrequencyBin*(SAMPLING_RATE/BUFFER_LENGHT);
 #if TRANSFORM_FUNCTION_NO_TEST
     for (i = 0; i < BUFFER_LENGHT; i++) printf("B - [%03u].R = %04X = % 5d\n\r", i, sigCmpx[i].real, sigCmpx[i].real);
+    for (i = 0; i < BUFFER_LENGHT; i++) {
+        printf("C - [%03u].R = %04X = % 5d, ", i, buff[i].real, buff[i].real);
+        printf("C - [%03u].I = %04X = % 5d\n\r", i, buff[i].imag, buff[i].imag);
+    }
 #endif
 	/* Perform IFFT operation */
 #if FFTTWIDCOEFFS_IN_PROGMEM
@@ -134,7 +138,7 @@ void transform() {
     for (i = 0; i < BUFFER_LENGHT; i++)  sigCmpx[i].real = sigCmpx[i].real * BUFFER_LENGHT;
     
 #if TRANSFORM_FUNCTION_NO_TEST
-    for (i = 0; i < BUFFER_LENGHT; i++)  printf("C - [%03u].R = %04X = % 5d\n\r", i, sigCmpx[i].real, sigCmpx[i].real);
+    for (i = 0; i < BUFFER_LENGHT; i++)  printf("D - [%03u].R = %04X = % 5d\n\r", i, sigCmpx[i].real, sigCmpx[i].real);
     printf("\n\rpeakFrequencyBin = %d\n\r", peakFrequencyBin);
     printf("peakFrequency = %d\n\r", (int)peakFrequency);
 #endif
